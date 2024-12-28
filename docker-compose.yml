@@ -1,0 +1,16 @@
+services: # définir tous les services que l'on souhaite en dessous, par exemple dans ce cas-ci c'est Grafana (un service est un conteneur)
+  grafana:
+    user: "1000:1000" # dire à Grafana de créer les dossiers en tant que mon utilisateur
+    image: grafana/grafana:10.2.2 # mettre le lien que l'on peut trouver sur Docker Hub
+    ports:
+      - "3000:3000" # le premier est le port local et le deuxième est celui du conteneur
+    networks: # on doit définir un réseau
+      monprojetgrafana:
+    volumes: # aller chercher sur le net la documentation pour savoir où mapper les logs et le volume
+      # sudo chmod -R 777 data
+      - ./data/grafana/lib:/var/lib/grafana
+      - ./data/grafana/logs:/var/logs/grafana
+      - ./data/grafana/plugins:/var/lib/grafana/plugins
+
+networks:  # pour créer un réseau interne (pour lier tous les éléments internes)
+  monprojetgrafana:   # nom du projet
