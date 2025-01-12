@@ -1,0 +1,19 @@
+# Ignorer les données persistantes
+data/
+
+# Ignorer les fichiers de configuration sensibles
+config/
+
+# Ignorer les logs
+*.log
+logs/
+data/grafana/logs/
+
+# Ignorer les fichiers temporaires du système ou de l'éditeur
+*.swp
+*.tmp
+*.bak
+*.~*
+
+# Ignorer les fichiers spécifiques à Visual Studio Code
+.vscode/
